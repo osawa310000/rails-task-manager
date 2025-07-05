@@ -1,1 +1,9 @@
-<h1>test</h1>
+    <h1>My Tasks</h1>
+    <div>
+      <ul>
+        <% @tasks.each do |t| %>
+        <li>title:  <%= t.title %> - description: <%= t.description %> <%= link_to "edit", edit_task_path(t) %> - <%= link_to "Delete", delete_path(t), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
+        <% end %>
+      </ul>
+    </div>
+<%= link_to "New Task", new_task_path %>
